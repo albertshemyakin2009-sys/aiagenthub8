@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AIAGENTHUB</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="preloader" class="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-logo">AI<span>AGENT</span>HUB</div>
+    <div class="preloader-orbit"></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-row">
+    <div class="logo">AI<span>AGENT</span>HUB</div>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-i18n="nav_home">Главная</a>
+      <a href="catalog.html" data-i18n="nav_catalog">Каталог</a>
+      <a href="about.html" data-i18n="nav_about">О нас</a>
+      <a href="support.html" data-i18n="nav_support">Поддержка</a>
+      <a href="settings.html" data-i18n="nav_settings">Настройки</a>
+      <a href="admin.html" data-i18n="nav_admin">Админ</a>
+    </nav>
+    <div class="header-right">
+      <button id="langBtn" class="lang-toggle">EN</button>
+      <button class="btn-outline">Sign in</button>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-grid container">
+      <div class="hero-left fade-in">
+        <div class="hero-kicker">
+          <span class="badge">beta</span>
+          <span data-i18n="hero_kicker">Каталог продвинутых AI-агентов</span>
+        </div>
+        <h1 class="hero-title">
+          <span>AIAGENTHUB</span> — платформа для поиска и подключения AI-агентов
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          Находите, тестируйте и подключайте проверенных AI-ассистентов для саппорта, продаж, аналитики и контента без сложной интеграции.
+        </p>
+        <div class="hero-cta">
+          <a href="catalog.html" class="btn-primary">
+            <span data-i18n="hero_cta_primary">Смотреть каталог</span>
+            <span class="icon">↗</span>
+          </a>
+          <a href="support.html" class="btn-outline">
+            <span data-i18n="hero_cta_secondary">Добавить своего агента</span>
+          </a>
+        </div>
+        <div class="hero-meta">
+          <div>
+            <strong>6+</strong>
+            <div data-i18n="hero_meta_agents">агентов в демо-линейке</div>
+          </div>
+          <div>
+            <strong>Manual</strong>
+            <div data-i18n="hero_meta_verify">ручная модерация и проверка качества</div>
+          </div>
+          <div>
+            <strong>API soon</strong>
+            <div data-i18n="hero_meta_connect">подключение в пару кликов</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right fade-in">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-pill">Live demo · curated agents</div>
+            <div class="hero-pill">AIAGENTHUB</div>
+          </div>
+          <div class="hero-card-agents">
+            <div class="agent-mini">
+              <span class="name">Nova Support AI</span>
+              <span class="tag">SaaS · Support</span>
+              <span class="light">-32% time to first reply</span>
+            </div>
+            <div class="agent-mini">
+              <span class="name">SalesPulse AI</span>
+              <span class="tag">Sales · Outbound</span>
+              <span class="light">+18% booked calls</span>
+            </div>
+            <div class="agent-mini">
+              <span class="name">Content Aura</span>
+              <span class="tag">Content · Brand</span>
+              <span class="light">consistent tone</span>
+            </div>
+          </div>
+          <div class="hero-progress">
+            <div class="hero-progress-bar">
+              <div class="hero-progress-fill"></div>
+            </div>
+            <div>curated launchline</div>
+          </div>
+          <div class="hero-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div>
+          <h2 class="section-title" data-i18n="preview_title">Популярные направления</h2>
+          <p class="section-subtitle" data-i18n="preview_subtitle">Демо-подборка, отражающая формат будущего каталога.</p>
+        </div>
+        <a href="catalog.html" class="btn-outline" data-i18n="preview_more">Перейти в каталог</a>
+      </div>
+      <div id="cards-preview" class="cards-grid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <span class="logo">AI<span>AGENT</span>HUB</span> — <span data-i18n="foot_tag">каталог AI-агентов для бизнеса и создателей</span>
+    </div>
+    <div>
+      support: <a href="mailto:albertshemyakin2009@gmail.com">albertshemyakin2009@gmail.com</a> · © 2025
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

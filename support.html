@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AIAGENTHUB · Поддержка</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="preloader" class="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-logo">AI<span>AGENT</span>HUB</div>
+    <div class="preloader-orbit"></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-row">
+    <div class="logo">AI<span>AGENT</span>HUB</div>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav_home">Главная</a>
+      <a href="catalog.html" data-i18n="nav_catalog">Каталог</a>
+      <a href="about.html" data-i18n="nav_about">О нас</a>
+      <a href="support.html" data-i18n="nav_support">Поддержка</a>
+      <a href="settings.html" data-i18n="nav_settings">Настройки</a>
+      <a href="admin.html" data-i18n="nav_admin">Админ</a>
+    </nav>
+    <div class="header-right">
+      <button id="langBtn" class="lang-toggle">EN</button>
+      <button class="btn-outline">Sign in</button>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+    <h1 class="fade-in" data-i18n="support_title">Поддержка и обратная связь</h1>
+    <p class="fade-in" data-i18n="support_p1">
+      Если у вас есть вопросы по интеграции, партнёрству или вы хотите добавить своего агента — напишите нам. Это демо-форма без реальной отправки.
+    </p>
+
+    <form id="supportForm" class="form fade-in">
+      <div>
+        <label for="name" data-i18n="support_f_name">Ваше имя</label>
+        <input id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email" data-i18n="support_f_email">Email</label>
+        <input id="email" type="email" name="email" required>
+      </div>
+      <div>
+        <label for="topic" data-i18n="support_f_topic">Тема</label>
+        <input id="topic" name="topic">
+      </div>
+      <div>
+        <label for="message" data-i18n="support_f_message">Сообщение</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary">
+        <span data-i18n="support_f_send">Отправить</span>
+        <span class="icon">↗</span>
+      </button>
+    </form>
+
+    <section class="section fade-in">
+      <h2 class="section-title" data-i18n="faq_title">FAQ</h2>
+      <div class="cards-row">
+        <div class="panel-card">
+          <strong data-i18n="faq_q1">Как добавить своего агента?</strong>
+          <p data-i18n="faq_a1">Заполнить форму, указать стек, цену, кейсы. Мы проверим и вернёмся к вам.</p>
+        </div>
+        <div class="panel-card">
+          <strong data-i18n="faq_q2">Будет ли монетизация через платформу?</strong>
+          <p data-i18n="faq_a2">Да, в планах встроенные подписки и ревеню-шеринг.</p>
+        </div>
+        <div class="panel-card">
+          <strong data-i18n="faq_q3">Когда запуск?</strong>
+          <p data-i18n="faq_a3">Сейчас доступен прототип интерфейса, подбираем партнёров для первой версии.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <span class="logo">AI<span>AGENT</span>HUB</span> — <span data-i18n="foot_tag">каталог AI-агентов для бизнеса и создателей</span>
+    </div>
+    <div>
+      support: <a href="mailto:albertshemyakin2009@gmail.com">albertshemyakin2009@gmail.com</a> · © 2025
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AIAGENTHUB · Настройки</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="preloader" class="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-logo">AI<span>AGENT</span>HUB</div>
+    <div class="preloader-orbit"></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-row">
+    <div class="logo">AI<span>AGENT</span>HUB</div>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav_home">Главная</a>
+      <a href="catalog.html" data-i18n="nav_catalog">Каталог</a>
+      <a href="about.html" data-i18n="nav_about">О нас</a>
+      <a href="support.html" data-i18n="nav_support">Поддержка</a>
+      <a href="settings.html" data-i18n="nav_settings">Настройки</a>
+      <a href="admin.html" data-i18n="nav_admin">Админ</a>
+    </nav>
+    <div class="header-right">
+      <button id="langBtn" class="lang-toggle">EN</button>
+      <button class="btn-outline">Sign in</button>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+    <h1 class="fade-in" data-i18n="settings_title">Настройки аккаунта (демо)</h1>
+    <p class="fade-in" data-i18n="settings_p1">
+      Здесь в будущем будет управление профилем, языком, валютой, уведомлениями и интеграциями. Пока — сохранение в localStorage.
+    </p>
+
+    <form id="settingsForm" class="form fade-in">
+      <div>
+        <label for="settingsLang" data-i18n="settings_lang_label">Язык интерфейса</label>
+        <select id="settingsLang" name="settingsLang">
+          <option value="ru">Русский</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+      <div>
+        <label for="currencySelect" data-i18n="settings_curr_label">Базовая валюта</label>
+        <select id="currencySelect" name="currency">
+          <option value="USDT">USDT</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+      </div>
+      <div>
+        <label data-i18n="settings_notifications">Уведомления</label>
+        <p class="section-subtitle" data-i18n="settings_notify_desc">
+          Получать апдейты о новых агентах и важных изменениях.
+        </p>
+      </div>
+      <button type="submit" class="btn-primary">
+        <span data-i18n="settings_save">Сохранить настройки</span>
+      </button>
+    </form>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <span class="logo">AI<span>AGENT</span>HUB</span> — <span data-i18n="foot_tag">каталог AI-агентов для бизнеса и создателей</span>
+    </div>
+    <div>
+      support: <a href="mailto:albertshemyakin2009@gmail.com">albertshemyakin2009@gmail.com</a> · © 2025
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

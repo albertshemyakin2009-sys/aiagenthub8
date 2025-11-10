@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AIAGENTHUB · Админ-панель</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="preloader" class="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-logo">AI<span>AGENT</span>HUB</div>
+    <div class="preloader-orbit"></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-row">
+    <div class="logo">AI<span>AGENT</span>HUB</div>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav_home">Главная</a>
+      <a href="catalog.html" data-i18n="nav_catalog">Каталог</a>
+      <a href="about.html" data-i18n="nav_about">О нас</a>
+      <a href="support.html" data-i18n="nav_support">Поддержка</a>
+      <a href="settings.html" data-i18n="nav_settings">Настройки</a>
+      <a href="admin.html" data-i18n="nav_admin">Админ</a>
+    </nav>
+    <div class="header-right">
+      <button id="langBtn" class="lang-toggle">EN</button>
+      <button class="btn-outline">Sign in</button>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+    <h1 class="fade-in" data-i18n="admin_title">Админ-панель (демо)</h1>
+    <p class="fade-in" data-i18n="admin_p1">
+      Здесь отображаются заявки на добавление агентов, статусы модерации и базовые метрики. Всё mock-данные.
+    </p>
+
+    <div class="cards-row">
+      <div class="stat-card fade-in">
+        <div class="stat-label">Агентов в демо</div>
+        <div class="stat-value">6</div>
+        <div class="badge-soft">curated set</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-label">Новые заявки</div>
+        <div class="stat-value">3</div>
+        <div class="badge-soft">ожидают модерации</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-label">Featured-блок</div>
+        <div class="stat-value">3</div>
+        <div class="badge-soft">на главной</div>
+      </div>
+    </div>
+
+    <div class="table-wrap fade-in">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Агент</th>
+            <th>Автор</th>
+            <th>Категория</th>
+            <th>Статус</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nova Support AI</td>
+            <td>Studio Nova</td>
+            <td>Support</td>
+            <td><span class="status-pill online"><span class="dot"></span>Опубликован</span></td>
+          </tr>
+          <tr>
+            <td>SalesPulse AI</td>
+            <td>Outbound Lab</td>
+            <td>Sales</td>
+            <td><span class="status-pill online"><span class="dot"></span>Опубликован</span></td>
+          </tr>
+          <tr>
+            <td>ScriptForge Studio</td>
+            <td>Indie Dev</td>
+            <td>Dev</td>
+            <td><span class="status-pill mod"><span class="dot"></span>На модерации</span></td>
+          </tr>
+          <tr>
+            <td>Custom Agent (NDA)</td>
+            <td>Agency X</td>
+            <td>Other</td>
+            <td><span class="status-pill draft"><span class="dot"></span>Черновик</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <span class="logo">AI<span>AGENT</span>HUB</span> — <span data-i18n="foot_tag">каталог AI-агентов для бизнеса и создателей</span>
+    </div>
+    <div>
+      support: <a href="mailto:albertshemyakin2009@gmail.com">albertshemyakin2009@gmail.com</a> · © 2025
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

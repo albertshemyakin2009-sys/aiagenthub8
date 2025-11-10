@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AIAGENTHUB · Каталог</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="preloader" class="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-logo">AI<span>AGENT</span>HUB</div>
+    <div class="preloader-orbit"></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-row">
+    <div class="logo">AI<span>AGENT</span>HUB</div>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav_home">Главная</a>
+      <a href="catalog.html" data-i18n="nav_catalog">Каталог</a>
+      <a href="about.html" data-i18n="nav_about">О нас</a>
+      <a href="support.html" data-i18n="nav_support">Поддержка</a>
+      <a href="settings.html" data-i18n="nav_settings">Настройки</a>
+      <a href="admin.html" data-i18n="nav_admin">Админ</a>
+    </nav>
+    <div class="header-right">
+      <button id="langBtn" class="lang-toggle">EN</button>
+      <button class="btn-outline">Sign in</button>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+    <h1 class="fade-in" data-i18n="catalog_title">Каталог AI-агентов (демо)</h1>
+    <p class="fade-in" data-i18n="catalog_subtitle">Фильтруйте по направлению и use-case, чтобы оценить формат будущего каталога.</p>
+
+    <div class="filters fade-in">
+      <input id="search" class="filter-input" type="search" data-i18n-placeholder="filter_search" placeholder="Поиск по названию или задаче">
+      <div>
+        <button class="chip active" data-filter="all" data-filter-label="all" data-i18n="filter_all">Все категории</button>
+        <button class="chip" data-filter="support" data-filter-label="support" data-i18n="filter_support">Поддержка</button>
+        <button class="chip" data-filter="sales" data-filter-label="sales" data-i18n="filter_sales">Продажи</button>
+        <button class="chip" data-filter="marketing" data-filter-label="marketing" data-i18n="filter_marketing">Маркетинг &amp; контент</button>
+        <button class="chip" data-filter="dev" data-filter-label="dev" data-i18n="filter_dev">Dev &amp; Ops</button>
+        <button class="chip" data-filter="other" data-filter-label="other" data-i18n="filter_other">Другое</button>
+      </div>
+    </div>
+
+    <div id="cards" class="cards-grid"></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <span class="logo">AI<span>AGENT</span>HUB</span> — <span data-i18n="foot_tag">каталог AI-агентов для бизнеса и создателей</span>
+    </div>
+    <div>
+      support: <a href="mailto:albertshemyakin2009@gmail.com">albertshemyakin2009@gmail.com</a> · © 2025
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
