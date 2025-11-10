@@ -1,80 +1,122 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AIAGENTHUB · О нас</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>О платформе — AIAGENTHUB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div id="preloader" class="preloader">
-  <div class="preloader-inner">
-    <div class="preloader-logo">AI<span>AGENT</span>HUB</div>
-    <div class="preloader-orbit"></div>
-  </div>
-</div>
+<div class="app-shell">
 
-<header class="site-header">
-  <div class="container header-row">
-    <div class="logo">AI<span>AGENT</span>HUB</div>
+<header class="app-header">
+  <div class="max-w app-header-inner">
+    <div class="brand">
+      <div class="brand-logo"></div>
+      <div class="brand-text">AIAGENTHUB</div>
+    </div>
     <nav class="nav">
-      <a href="index.html" data-i18n="nav_home">Главная</a>
-      <a href="catalog.html" data-i18n="nav_catalog">Каталог</a>
-      <a href="about.html" data-i18n="nav_about">О нас</a>
-      <a href="support.html" data-i18n="nav_support">Поддержка</a>
-      <a href="settings.html" data-i18n="nav_settings">Настройки</a>
-      <a href="admin.html" data-i18n="nav_admin">Админ</a>
+      <a href="index.html" data-i18n="nav_home" class="">Главная</a>
+          <a href="catalog.html" data-i18n="nav_catalog" class="">Каталог</a>
+          <a href="about.html" data-i18n="nav_about" class="active">О нас</a>
+          <a href="support.html" data-i18n="nav_support" class="">Поддержка</a>
+          <a href="settings.html" data-i18n="nav_settings" class="">Настройки</a>
+          <a href="admin.html" data-i18n="nav_admin" class="">Админ</a>
     </nav>
     <div class="header-right">
-      <button id="langBtn" class="lang-toggle">EN</button>
-      <button class="btn-outline">Sign in</button>
-      <div class="hamburger"><span></span><span></span><span></span></div>
+      <button id="langBtn" class="lang-toggle" type="button">
+        <span data-i18n="lang_label">RU</span>
+      </button>
+      <button class="header-auth-btn" type="button">
+        <span class="dot"></span>
+        <span data-i18n="auth_demo">Демо-доступ</span>
+      </button>
+    </div>
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
     </div>
   </div>
+  <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html" data-i18n="nav_home" class="">Главная</a>
+      <a href="catalog.html" data-i18n="nav_catalog" class="">Каталог</a>
+      <a href="about.html" data-i18n="nav_about" class="active">О нас</a>
+      <a href="support.html" data-i18n="nav_support" class="">Поддержка</a>
+      <a href="settings.html" data-i18n="nav_settings" class="">Настройки</a>
+      <a href="admin.html" data-i18n="nav_admin" class="">Админ</a>
+  </nav>
 </header>
 
-<main class="page">
-  <div class="container">
-    <h1 class="fade-in" data-i18n="about_title">О платформе AIAGENTHUB</h1>
-    <p class="fade-in" data-i18n="about_p1">
-      AIAGENTHUB задуман как аккуратный, прозрачный каталог AI-агентов и no-code решений, который упрощает выбор и подключение ассистентов под конкретные задачи.
-    </p>
-    <p class="fade-in" data-i18n="about_p2">
-      Мы хотим соединить пользователей и создателей: бизнесу — дать быстрый доступ к проверенным решениям, а студиям и соло‑разработчикам — понятную витрину и поток лидов.
-    </p>
-    <p class="fade-in" data-i18n="about_p3">
-      На следующих этапах появятся рейтинги, отзывы, публичные профили агентов, верификация, витрина кейсов и API для интеграции каталога на другие сайты и в продукты.
-    </p>
+  <main>
+    <section class="section fade-in">
+      <div class="max-w">
+        <h1 class="page-title" data-i18n="about_title">О платформе AIAGENTHUB</h1>
+        <p class="page-subtitle" data-i18n="about_subtitle">
+          Мы строим каталог проверенных AI-агентов, который связывает бизнес, студии и создателей с готовыми решениями — прозрачно, быстро и без лишнего шума.
+        </p>
+        <div class="columns">
+          <div class="card">
+            <h3 data-i18n="about_mission_title">Миссия</h3>
+            <p data-i18n="about_mission_text">
+              Упростить путь от идеи до рабочей AI-автоматизации. Один хаб вместо десятков разрозненных ботов и порядков.
+            </p>
+            <h3 data-i18n="about_for_whom_title">Для кого</h3>
+            <ul class="list">
+              <li data-i18n="about_for_whom_1">Бизнес и стартапы — быстрое тестирование AI-решений под конкретные задачи.</li>
+              <li data-i18n="about_for_whom_2">Разработчики и студии — витрина своих агентов и канал лидов.</li>
+              <li data-i18n="about_for_whom_3">Создатели контента и эксперты — упаковка экспертизы в AI-ассистента.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 data-i18n="about_quality_title">Качество и развитие</h3>
+            <ul class="list">
+              <li data-i18n="about_quality_1">Мягкая модерация: базовая проверка описаний, сценариев и UX агентов.</li>
+              <li data-i18n="about_quality_2">Планы: рейтинги, верификация, публичные ревью, API для встроек и виджетов.</li>
+              <li data-i18n="about_quality_3">Прозрачные карточки: стек, ограничения, стоимость, интеграции.</li>
+            </ul>
+            <h3 data-i18n="about_next_title">Куда идём дальше</h3>
+            <ul class="list">
+              <li data-i18n="about_next_1">Единый формат подключения и оплаты.</li>
+              <li data-i18n="about_next_2">Песочницы для безопасного теста агентов.</li>
+              <li data-i18n="about_next_3">Подбор агентов под кейс на основе метрик и отзывов.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <h2 class="section-title fade-in" data-i18n="about_cards_title">Кому полезен AIAGENTHUB</h2>
-    <div class="cards-row">
-      <div class="panel-card fade-in">
-        <div class="badge-soft">01</div>
-        <p data-i18n="about_item_1">Бизнесу и стартапам — быстрый обзор готовых AI-агентов под саппорт, продажи, аналитика, контент.</p>
+<footer class="app-footer">
+  <div class="max-w">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-title" data-i18n="footer_product">Продукт</div>
+        <a href="catalog.html" class="footer-link" data-i18n="footer_catalog">Каталог агентов</a>
+        <a href="about.html" class="footer-link" data-i18n="footer_how_it_works">Как это работает</a>
       </div>
-      <div class="panel-card fade-in">
-        <div class="badge-soft">02</div>
-        <p data-i18n="about_item_2">AI-студиям и соло-разработчикам — витрина для агентов, ясные условия и заявки от клиентов.</p>
+      <div>
+        <div class="footer-title" data-i18n="footer_company">Компания</div>
+        <a href="about.html" class="footer-link" data-i18n="footer_about">О платформе</a>
+        <a href="support.html" class="footer-link" data-i18n="footer_contact">Контакты</a>
       </div>
-      <div class="panel-card fade-in">
-        <div class="badge-soft">03</div>
-        <p data-i18n="about_item_3">Создателям контента — подбор ассистентов для написания текстов, монтажа, ресерча.</p>
+      <div>
+        <div class="footer-title" data-i18n="footer_support">Поддержка</div>
+        <a href="support.html" class="footer-link" data-i18n="footer_faq">FAQ</a>
+        <a href="support.html" class="footer-link" data-i18n="footer_support_center">Центр помощи</a>
+      </div>
+      <div>
+        <div class="footer-title">Legal</div>
+        <a href="#" class="footer-link">Terms</a>
+        <a href="#" class="footer-link">Privacy</a>
       </div>
     </div>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div>
-      <span class="logo">AI<span>AGENT</span>HUB</span> — <span data-i18n="foot_tag">каталог AI-агентов для бизнеса и создателей</span>
-    </div>
-    <div>
-      support: <a href="mailto:albertshemyakin2009@gmail.com">albertshemyakin2009@gmail.com</a> · © 2025
+    <div class="footer-bottom">
+      <div>© AIAGENTHUB, 2025. All rights reserved.</div>
+      <div data-i18n="footer_tagline">Каталог умных AI-агентов для бизнеса и создателей.</div>
     </div>
   </div>
 </footer>
 
-<script src="script.js" defer></script>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

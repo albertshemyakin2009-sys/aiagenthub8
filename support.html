@@ -1,99 +1,136 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AIAGENTHUB · Поддержка</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Поддержка и заявки — AIAGENTHUB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div id="preloader" class="preloader">
-  <div class="preloader-inner">
-    <div class="preloader-logo">AI<span>AGENT</span>HUB</div>
-    <div class="preloader-orbit"></div>
-  </div>
-</div>
+<div class="app-shell">
 
-<header class="site-header">
-  <div class="container header-row">
-    <div class="logo">AI<span>AGENT</span>HUB</div>
+<header class="app-header">
+  <div class="max-w app-header-inner">
+    <div class="brand">
+      <div class="brand-logo"></div>
+      <div class="brand-text">AIAGENTHUB</div>
+    </div>
     <nav class="nav">
-      <a href="index.html" data-i18n="nav_home">Главная</a>
-      <a href="catalog.html" data-i18n="nav_catalog">Каталог</a>
-      <a href="about.html" data-i18n="nav_about">О нас</a>
-      <a href="support.html" data-i18n="nav_support">Поддержка</a>
-      <a href="settings.html" data-i18n="nav_settings">Настройки</a>
-      <a href="admin.html" data-i18n="nav_admin">Админ</a>
+      <a href="index.html" data-i18n="nav_home" class="">Главная</a>
+          <a href="catalog.html" data-i18n="nav_catalog" class="">Каталог</a>
+          <a href="about.html" data-i18n="nav_about" class="">О нас</a>
+          <a href="support.html" data-i18n="nav_support" class="active">Поддержка</a>
+          <a href="settings.html" data-i18n="nav_settings" class="">Настройки</a>
+          <a href="admin.html" data-i18n="nav_admin" class="">Админ</a>
     </nav>
     <div class="header-right">
-      <button id="langBtn" class="lang-toggle">EN</button>
-      <button class="btn-outline">Sign in</button>
-      <div class="hamburger"><span></span><span></span><span></span></div>
+      <button id="langBtn" class="lang-toggle" type="button">
+        <span data-i18n="lang_label">RU</span>
+      </button>
+      <button class="header-auth-btn" type="button">
+        <span class="dot"></span>
+        <span data-i18n="auth_demo">Демо-доступ</span>
+      </button>
+    </div>
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
     </div>
   </div>
+  <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html" data-i18n="nav_home" class="">Главная</a>
+      <a href="catalog.html" data-i18n="nav_catalog" class="">Каталог</a>
+      <a href="about.html" data-i18n="nav_about" class="">О нас</a>
+      <a href="support.html" data-i18n="nav_support" class="active">Поддержка</a>
+      <a href="settings.html" data-i18n="nav_settings" class="">Настройки</a>
+      <a href="admin.html" data-i18n="nav_admin" class="">Админ</a>
+  </nav>
 </header>
 
-<main class="page">
-  <div class="container">
-    <h1 class="fade-in" data-i18n="support_title">Поддержка и обратная связь</h1>
-    <p class="fade-in" data-i18n="support_p1">
-      Если у вас есть вопросы по интеграции, партнёрству или вы хотите добавить своего агента — напишите нам. Это демо-форма без реальной отправки.
-    </p>
-
-    <form id="supportForm" class="form fade-in">
-      <div>
-        <label for="name" data-i18n="support_f_name">Ваше имя</label>
-        <input id="name" name="name" required>
-      </div>
-      <div>
-        <label for="email" data-i18n="support_f_email">Email</label>
-        <input id="email" type="email" name="email" required>
-      </div>
-      <div>
-        <label for="topic" data-i18n="support_f_topic">Тема</label>
-        <input id="topic" name="topic">
-      </div>
-      <div>
-        <label for="message" data-i18n="support_f_message">Сообщение</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-      </div>
-      <button type="submit" class="btn-primary">
-        <span data-i18n="support_f_send">Отправить</span>
-        <span class="icon">↗</span>
-      </button>
-    </form>
-
+  <main>
     <section class="section fade-in">
-      <h2 class="section-title" data-i18n="faq_title">FAQ</h2>
-      <div class="cards-row">
-        <div class="panel-card">
-          <strong data-i18n="faq_q1">Как добавить своего агента?</strong>
-          <p data-i18n="faq_a1">Заполнить форму, указать стек, цену, кейсы. Мы проверим и вернёмся к вам.</p>
-        </div>
-        <div class="panel-card">
-          <strong data-i18n="faq_q2">Будет ли монетизация через платформу?</strong>
-          <p data-i18n="faq_a2">Да, в планах встроенные подписки и ревеню-шеринг.</p>
-        </div>
-        <div class="panel-card">
-          <strong data-i18n="faq_q3">Когда запуск?</strong>
-          <p data-i18n="faq_a3">Сейчас доступен прототип интерфейса, подбираем партнёров для первой версии.</p>
+      <div class="max-w">
+        <h1 class="page-title" data-i18n="support_title">Поддержка &amp; заявки агентов</h1>
+        <p class="page-subtitle" data-i18n="support_subtitle">
+          Задай вопрос по платформе или отправь карточку своего агента на модерацию. Сейчас всё работает в демо-режиме.
+        </p>
+        <div class="columns">
+          <div class="card">
+            <h3 data-i18n="support_form_title">Написать в поддержку</h3>
+            <form id="supportForm" class="form-grid">
+              <div>
+                <div class="label" data-i18n="support_name_label">Имя / команда</div>
+                <input class="input" type="text" name="name" required placeholder="AI Studio / SaaS / Solo" />
+              </div>
+              <div>
+                <div class="label">Email</div>
+                <input class="input" type="email" name="email" required placeholder="you@product.io" />
+              </div>
+              <div>
+                <div class="label" data-i18n="support_topic_label">Тема</div>
+                <select class="select" name="topic">
+                  <option>Вопрос по платформе</option>
+                  <option>Хочу добавить агента</option>
+                  <option>Партнёрство / интеграции</option>
+                  <option>Другое</option>
+                </select>
+              </div>
+              <div>
+                <div class="label" data-i18n="support_message_label">Сообщение</div>
+                <textarea class="textarea" name="message" required
+                  placeholder="Кратко опишите задачу или ссылку на вашего агента."></textarea>
+              </div>
+              <button class="btn-submit" type="submit" data-i18n="support_submit">Отправить (демо)</button>
+            </form>
+          </div>
+          <div class="card">
+            <h3 data-i18n="support_faq_title">FAQ по запуску агента</h3>
+            <ul class="list">
+              <li><strong>Как добавить агента?</strong> — Заполнить форму, приложить описание, ссылку, интеграции.</li>
+              <li><strong>Сколько стоит размещение?</strong> — На этапе beta — бесплатно, далее гибкая модель.</li>
+              <li><strong>Как проходит модерация?</strong> — Проверяем UX, честность описания и базовую безопасность.</li>
+              <li><strong>Можно ли white-label?</strong> — Да, обсуждается индивидуально.</li>
+            </ul>
+            <p style="margin-top:8px;font-size:9px;color:#6b7280;">
+              Telegram / Discord / Email — будут добавлены как живые каналы после запуска публичной версии.
+            </p>
+          </div>
         </div>
       </div>
     </section>
-  </div>
-</main>
+  </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <div>
-      <span class="logo">AI<span>AGENT</span>HUB</span> — <span data-i18n="foot_tag">каталог AI-агентов для бизнеса и создателей</span>
+<footer class="app-footer">
+  <div class="max-w">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-title" data-i18n="footer_product">Продукт</div>
+        <a href="catalog.html" class="footer-link" data-i18n="footer_catalog">Каталог агентов</a>
+        <a href="about.html" class="footer-link" data-i18n="footer_how_it_works">Как это работает</a>
+      </div>
+      <div>
+        <div class="footer-title" data-i18n="footer_company">Компания</div>
+        <a href="about.html" class="footer-link" data-i18n="footer_about">О платформе</a>
+        <a href="support.html" class="footer-link" data-i18n="footer_contact">Контакты</a>
+      </div>
+      <div>
+        <div class="footer-title" data-i18n="footer_support">Поддержка</div>
+        <a href="support.html" class="footer-link" data-i18n="footer_faq">FAQ</a>
+        <a href="support.html" class="footer-link" data-i18n="footer_support_center">Центр помощи</a>
+      </div>
+      <div>
+        <div class="footer-title">Legal</div>
+        <a href="#" class="footer-link">Terms</a>
+        <a href="#" class="footer-link">Privacy</a>
+      </div>
     </div>
-    <div>
-      support: <a href="mailto:albertshemyakin2009@gmail.com">albertshemyakin2009@gmail.com</a> · © 2025
+    <div class="footer-bottom">
+      <div>© AIAGENTHUB, 2025. All rights reserved.</div>
+      <div data-i18n="footer_tagline">Каталог умных AI-агентов для бизнеса и создателей.</div>
     </div>
   </div>
 </footer>
 
-<script src="script.js" defer></script>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

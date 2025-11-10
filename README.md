@@ -1,20 +1,40 @@
-AIAGENTHUB_FINAL_CUSTOM
+# AIAGENTHUB (Enhanced Static Demo)
 
-Static prototype of AIAGENTHUB using vanilla HTML + CSS + JS.
+Статический прототип маркетплейса AI-агентов.
 
-Features:
-- Dark, minimal, product-grade UI
-- RU/EN localization (stored in localStorage)
-- Demo catalog of curated AI agents with search & category filters
-- Separate pages: Home, Catalog, About, Support, Settings, Admin (all wired)
-- Simple particle background & scroll-in animations
-- All logic runs client-side, no backend
+## Стек
 
-Deploy:
-1. Push files to GitHub (index.html, *.html, styles.css, script.js, assets/).
-2. On Vercel:
-   - New Project → Import from GitHub
-   - Framework preset: Other / Static
-   - Build command: none
-   - Output directory: root
-3. Done — Vercel will serve this as a static site.
+- Чистый HTML + CSS + JS
+- Без сборщиков, без бэкенда
+- Готов к деплою на GitHub Pages / Vercel
+
+## Структура
+
+- `index.html` — главная, hero + featured агенты
+- `catalog.html` — каталог с поиском и фильтрами (mock data)
+- `about.html` — о платформе
+- `support.html` — поддержка и форма заявки (demo)
+- `settings.html` — настройки, выбор языка/валюты (demo)
+- `admin.html` — админ-панель (demo)
+- `styles.css` — общий тёмный UI
+- `script.js` — логика фильтрации, рендера, i18n (RU/EN)
+
+## Запуск локально
+
+Просто откройте `index.html` в браузере.
+Для корректной работы history/nav рекомендуется любой статический сервер:
+
+```bash
+npx serve .
+# или
+python3 -m http.server 4173
+```
+
+## Деплой на Vercel
+
+1. Создать репозиторий на GitHub.
+2. Залить файлы из этого архива в корень.
+3. В Vercel: New Project → Import → Framework: `Other`.
+4. Build Command: _нет_, Output Directory: `/`.
+5. Deploy.
+
