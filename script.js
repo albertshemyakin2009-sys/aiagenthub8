@@ -1,4 +1,4 @@
-// Mock agents with detailed info
+// --- Mock agents with detailed info ---
 const AGENTS = [
   {
     id: "nova-support",
@@ -86,7 +86,7 @@ const AGENTS = [
   }
 ];
 
-// i18n dictionary (short)
+// --- i18n dictionary (ключевые тексты) ---
 const I18N = {
   ru: {
     lang_label: "RU",
@@ -123,9 +123,9 @@ const I18N = {
     catalog_subtitle: "Исследуй готовых ассистентов для поддержки клиентов, продаж, маркетинга, разработки и внутренних операций.",
     filter_all: "Все категории",
     about_title: "О платформе AIAGENTHUB",
-    about_subtitle: "Мы строим каталог проверенных AI-агентов, который связывает бизнес, студии и создателей с готовыми решениями.",
+    about_subtitle: "Мы строим каталог проверенных AI-агентов, который связывает бизнес, студии и создателей с готовыми решениями — прозрачно, быстро и без лишнего шума.",
     about_mission_title: "Миссия",
-    about_mission_text: "Упростить путь от идеи до рабочей AI-автоматизации. Один хаб вместо десятков разрозненных ботов.",
+    about_mission_text: "Упростить путь от идеи до рабочей AI-автоматизации. Один хаб вместо десятков разрозненных ботов и хаотичных интеграций.",
     about_for_whom_title: "Для кого",
     about_quality_title: "Качество и развитие",
     about_next_title: "Куда идём дальше",
@@ -138,23 +138,23 @@ const I18N = {
     support_submit: "Отправить в поддержку (демо)",
     support_faq_title: "Частые вопросы (тех)",
     settings_title: "Настройки аккаунта (демо)",
-    settings_subtitle: "В реальном запуске здесь будут авторизация, биллинг и интеграции.",
+    settings_subtitle: "Здесь настраиваются базовые параметры профиля, тема интерфейса и предпочтения.",
     settings_profile_title: "Профиль",
     settings_name_label: "Имя / команда",
     settings_language_title: "Язык интерфейса",
     settings_currency_title: "Валюта",
     settings_save: "Сохранить (демо)",
     settings_integrations_title: "Интеграции & уведомления",
-    settings_hint: "Все переключатели работают как прототип.",
+    settings_hint: "Все переключатели сейчас работают как прототип.",
     admin_title: "Админ-панель (демо)",
     admin_subtitle: "Прототип интерфейса модерации агентов.",
     admin_metrics_title: "Сводка за сегодня",
     admin_actions_title: "Действия модератора",
     admin_table_title: "Агенты (демо-таблица)",
     requests_title: "Запросы, пожелания и партнёрства",
-    requests_subtitle: "Идеи по платформе, заявки на интеграцию и новые агенты.",
+    requests_subtitle: "Идеи по платформе, заявки на партнёрство и предложения новых агентов.",
     requests_agent_title: "Предложить нового агента",
-    requests_partner_title: "Партнёрство и улучшения",
+    requests_partner_title: "Партнёрство и улучшения платформы",
     auth_title: "Вход / регистрация",
     auth_subtitle: "Зарегистрируйтесь, чтобы подключать агентов. Можно продолжить как гость.",
     auth_tab_register: "Регистрация",
@@ -215,7 +215,7 @@ const I18N = {
     support_submit: "Send to support (demo)",
     support_faq_title: "Technical FAQ",
     settings_title: "Settings (demo)",
-    settings_subtitle: "In production: auth, billing & integrations.",
+    settings_subtitle: "Configure profile, theme & preferences.",
     settings_profile_title: "Profile",
     settings_name_label: "Name / team",
     settings_language_title: "Interface language",
@@ -244,6 +244,7 @@ const I18N = {
   }
 };
 
+// --- Lang helpers ---
 function getCurrentLang() {
   try {
     return localStorage.getItem("aiagenthub_lang") || "ru";
@@ -280,7 +281,26 @@ function applyTranslations() {
   }
 }
 
-// Auth state helpers (demo only)
+// --- Theme helpers ---
+function getCurrentTheme() {
+  try {
+    return localStorage.getItem("aiagenthub_theme") || "original";
+  } catch {
+    return "original";
+  }
+}
+
+function setCurrentTheme(theme) {
+  const body = document.body;
+  if (!body) return;
+  if (theme !== "light" && theme !== "original") theme = "original";
+  body.setAttribute("data-theme", theme === "light" ? "light" : "original");
+  try {
+    localStorage.setItem("aiagenthub_theme", theme);
+  } catch {}
+}
+
+// --- Auth state (demo only) ---
 function getDemoUser() {
   try {
     const raw = localStorage.getItem("aiagenthub_user");
@@ -316,7 +336,7 @@ function isAuthedOrGuest() {
   return !!getDemoUser() || isGuest();
 }
 
-// Modal controls
+// --- Modal controls ---
 function openAuthModal() {
   const modal = document.getElementById("authModal");
   if (modal) modal.style.display = "flex";
@@ -327,7 +347,43 @@ function closeAuthModal() {
   if (modal) modal.style.display = "none";
 }
 
+// --- Agent card template ---
+function agentCardHTML(a) {
+  return `
+    <article class="agent-card" data-agent-id="${a.id}">
+      <div class="agent-card-header">
+        <div>
+          <div class="agent-name">${a.name}</div>
+          <div class="agent-desc">${a.short}</div>
+        </div>
+        <div class="agent-category">${a.category}</div>
+      </div>
+      <div class="agent-tags">
+        ${a.tags.map((t) => `<span class="agent-tag">${t}</span>`).join("")}
+      </div>
+      <div class="agent-actions">
+        <button class="primary connect-btn" type="button">
+          <span>Подключить</span>
+        </button>
+        <button class="more-btn" type="button">
+          <span>Подробнее</span>
+        </button>
+      </div>
+      <div class="agent-more" style="display:none;">
+        <div><strong>Use case:</strong> ${a.useCase}</div>
+        <div><strong>Пример запроса:</strong> ${a.examplePrompt}</div>
+        <div><strong>Интеграции:</strong> ${a.integrations.join(", ")}</div>
+        <div><strong>Условия:</strong> ${a.pricingNote}</div>
+      </div>
+    </article>
+  `;
+}
+
+// --- DOM Ready ---
 document.addEventListener("DOMContentLoaded", () => {
+  // Apply stored theme as early as possible
+  setCurrentTheme(getCurrentTheme());
+
   // Burger / mobile nav
   const burger = document.getElementById("burger");
   const mobileNav = document.getElementById("mobileNav");
@@ -348,6 +404,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Theme select (Settings)
+  const themeSelect = document.getElementById("themeSelect");
+  if (themeSelect) {
+    themeSelect.value = getCurrentTheme();
+    themeSelect.addEventListener("change", () => {
+      setCurrentTheme(themeSelect.value);
+    });
+  } else {
+    // Ensure theme is applied on pages без селектора
+    setCurrentTheme(getCurrentTheme());
+  }
+
   // Header auth button
   const openAuthFromHeader = document.getElementById("openAuthFromHeader");
   if (openAuthFromHeader) {
@@ -365,7 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const authEmail = document.getElementById("authEmail");
   const authPassword = document.getElementById("authPassword");
 
-  let authMode = "register"; // or login
+  let authMode = "register";
 
   if (authClose && authModal) {
     authClose.addEventListener("click", () => closeAuthModal());
@@ -397,13 +465,11 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Заполните email и пароль (демо).");
         return;
       }
-      if (authMode === "register") {
-        setDemoUser({ email, name: name || "Demo User" });
-        alert("Регистрация выполнена (демо). В реале здесь будет backend.");
-      } else {
-        setDemoUser({ email, name: name || "Demo User" });
-        alert("Вход выполнен (демо).");
-      }
+      const user = { email, name: name || "Demo User" };
+      setDemoUser(user);
+      alert(authMode === "register"
+        ? "Регистрация выполнена (демо). В реале здесь будет backend."
+        : "Вход выполнен (демо).");
       closeAuthModal();
     });
   }
@@ -448,7 +514,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const settingsBtn = document.getElementById("settingsSaveBtn");
   if (settingsBtn) {
     settingsBtn.addEventListener("click", () => {
-      alert("Настройки сохранены (демо).");
+      alert("Настройки сохранены (демо). В продакшене данные уйдут в backend.");
     });
   }
 
@@ -475,7 +541,7 @@ document.addEventListener("DOMContentLoaded", () => {
     featuredGrid.innerHTML = featured.map(agentCardHTML).join("");
   }
 
-  // Catalog page
+  // Catalog page logic
   const catalogGrid = document.getElementById("catalogAgents");
   const searchInput = document.getElementById("searchInput");
   const filterChips = document.querySelectorAll("#filterChips .filter-chip");
@@ -532,7 +598,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <td>${a.category}</td>
           <td>${status}</td>
           <td>
-            <button style="padding:2px 6px;font-size:8px;border-radius:8px;border:1px solid rgba(75,85,99,0.9);background:rgba(5,10,25,1);color:#9ca3af;cursor:pointer;">
+            <button style="padding:2px 6px;font-size:8px;border-radius:8px;border:1px solid rgba(75,85,99,0.9);background:var(--bg-main);color:var(--text-soft);cursor:pointer;">
               open
             </button>
           </td>
@@ -546,10 +612,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const moreBtn = e.target.closest(".more-btn");
     if (moreBtn) {
       const card = moreBtn.closest(".agent-card");
+      if (!card) return;
       const more = card.querySelector(".agent-more");
+      if (!more) return;
       const isOpen = more.style.display === "block";
       more.style.display = isOpen ? "none" : "block";
-      moreBtn.querySelector("span").textContent = isOpen ? "Подробнее" : "Свернуть";
+      const span = moreBtn.querySelector("span");
+      if (span) span.textContent = isOpen ? "Подробнее" : "Свернуть";
     }
 
     const connectBtn = e.target.closest(".connect-btn");
@@ -567,10 +636,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (fadeEls.length) {
     const obs = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("visible");
-            obs.unobserve(e.target);
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            obs.unobserve(entry.target);
           }
         });
       },
@@ -582,35 +651,3 @@ document.addEventListener("DOMContentLoaded", () => {
   // Apply translations last
   applyTranslations();
 });
-
-// Agent card with collapsible details
-function agentCardHTML(a) {
-  return `
-    <article class="agent-card" data-agent-id="${a.id}">
-      <div class="agent-card-header">
-        <div>
-          <div class="agent-name">${a.name}</div>
-          <div class="agent-desc">${a.short}</div>
-        </div>
-        <div class="agent-category">${a.category}</div>
-      </div>
-      <div class="agent-tags">
-        ${a.tags.map((t) => `<span class="agent-tag">${t}</span>`).join("")}
-      </div>
-      <div class="agent-actions">
-        <button class="primary connect-btn" type="button">
-          <span>Подключить</span>
-        </button>
-        <button class="more-btn" type="button">
-          <span>Подробнее</span>
-        </button>
-      </div>
-      <div class="agent-more" style="display:none;">
-        <div><strong>Use case:</strong> ${a.useCase}</div>
-        <div><strong>Пример запроса:</strong> ${a.examplePrompt}</div>
-        <div><strong>Интеграции:</strong> ${a.integrations.join(", ")}</div>
-        <div><strong>Условия:</strong> ${a.pricingNote}</div>
-      </div>
-    </article>
-  `;
-}
