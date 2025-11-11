@@ -1,36 +1,52 @@
-// Core mock data for agents
+// Mock agents with detailed info
 const AGENTS = [
   {
     id: "nova-support",
     name: "Nova Support AI",
-    short: "AI-саппорт для SaaS: ответы, triage тикетов, база знаний.",
+    short: "AI-саппорт для SaaS: автоответы, triage тикетов, база знаний.",
     category: "Support",
     tags: ["Helpdesk", "SaaS", "24/7"],
-    featured: true
+    featured: true,
+    useCase: "Поддержка клиентов SaaS и digital-продуктов, снижение нагрузки на живую команду.",
+    examplePrompt: "“Nova, обработай обращения за последний час и выдели 10 приоритетных тикетов.”",
+    integrations: ["Intercom", "Zendesk", "Slack"],
+    pricingNote: "Freemium до 500 тикетов, далее — тариф от $49/мес."
   },
   {
     id: "salespulse",
     name: "SalesPulse AI",
-    short: "Скоринг лидов, авто-ответы в почте и CRM-инсайты.",
+    short: "Скоринг лидов, автоответы и подсказки менеджерам продаж.",
     category: "Sales",
     tags: ["Outbound", "CRM", "Email"],
-    featured: true
+    featured: true,
+    useCase: "Приоритизация лидов и автоматизация первых касаний в b2b-продажах.",
+    examplePrompt: "“Оцени новые лиды из формы и выдели топ-20% для звонка сегодня.”",
+    integrations: ["HubSpot", "Pipedrive", "Salesforce"],
+    pricingNote: "Модель подписки от $79/мес."
   },
   {
     id: "content-aura",
     name: "Content Aura",
-    short: "Лонгриды, блоги, рассылки, соцсети под голос бренда.",
+    short: "Длинные тексты, рассылки и посты под голос бренда.",
     category: "Marketing",
     tags: ["Content", "SEO", "Brand"],
-    featured: true
+    featured: true,
+    useCase: "Автоматизация контент-плана для блогов, email, соцсетей.",
+    examplePrompt: "“Собери контент-план на месяц для B2B SaaS в стиле нашего блога.”",
+    integrations: ["Notion", "WordPress"],
+    pricingNote: "Freemium, далее оплата за объём генераций."
   },
   {
     id: "visionflow",
     name: "VisionFlow UX Reviewer",
-    short: "Анализ интерфейсов по скриншотам и гипотезы по улучшению.",
+    short: "Анализ интерфейсов по скриншотам и гипотезы улучшения.",
     category: "DevTools",
     tags: ["UX", "Design Review"],
-    featured: false
+    featured: false,
+    useCase: "Быстрые UX-аудиты прототипов и продакшн-экранов.",
+    examplePrompt: "“Разбери этот скриншот onboarding-экрана и предложи 5 улучшений.”",
+    integrations: ["Figma"],
+    pricingNote: "Оплата за ревью или подписка для студий."
   },
   {
     id: "opsmind",
@@ -38,15 +54,23 @@ const AGENTS = [
     short: "Автоматизация процессов в Notion, Slack, Jira.",
     category: "Ops",
     tags: ["Automation", "Workflows"],
-    featured: true
+    featured: true,
+    useCase: "Оркестрация задач и уведомлений между инструментами.",
+    examplePrompt: "“Синхронизируй задачи из канала #support в Jira с приоритетами.”",
+    integrations: ["Slack", "Jira", "Notion"],
+    pricingNote: "Гибкая тарификация по числу сценариев."
   },
   {
     id: "brandvoice",
     name: "BrandVoice Guardian",
-    short: "Контроль тона и стиля бренда при генерации текстов.",
+    short: "Контроль стиля и тона бренда при генерации текстов.",
     category: "Marketing",
     tags: ["Brand", "Policy"],
-    featured: false
+    featured: false,
+    useCase: "Фильтр и редактор контента перед публикацией.",
+    examplePrompt: "“Проверь этот текст на соответствие гайдам бренда и предложи правки.”",
+    integrations: ["Chrome Extension", "CMS"],
+    pricingNote: "Enterprise-подход, кастом под бренд."
   },
   {
     id: "scriptforge",
@@ -54,11 +78,15 @@ const AGENTS = [
     short: "Генерация скриптов, кода и CI-конфигов.",
     category: "DevTools",
     tags: ["Dev", "CI/CD"],
-    featured: false
+    featured: false,
+    useCase: "Ускорение прототипирования и настройки пайплайнов.",
+    examplePrompt: "“Сгенерируй GitHub Actions для Node.js + Playwright тестов.”",
+    integrations: ["GitHub", "GitLab"],
+    pricingNote: "Freemium + платные пресеты."
   }
 ];
 
-// Simple i18n dictionary
+// i18n dictionary (short)
 const I18N = {
   ru: {
     lang_label: "RU",
@@ -78,6 +106,7 @@ const I18N = {
     nav_catalog: "Каталог",
     nav_about: "О нас",
     nav_support: "Поддержка",
+    nav_requests: "Запросы",
     nav_settings: "Настройки",
     nav_admin: "Админ",
     footer_product: "Продукт",
@@ -85,7 +114,7 @@ const I18N = {
     footer_how_it_works: "Как это работает",
     footer_company: "Компания",
     footer_about: "О платформе",
-    footer_contact: "Контакты",
+    footer_contact: "Запросы и партнёрство",
     footer_support: "Поддержка",
     footer_faq: "FAQ",
     footer_support_center: "Центр помощи",
@@ -94,34 +123,47 @@ const I18N = {
     catalog_subtitle: "Исследуй готовых ассистентов для поддержки клиентов, продаж, маркетинга, разработки и внутренних операций.",
     filter_all: "Все категории",
     about_title: "О платформе AIAGENTHUB",
-    about_subtitle: "Мы строим каталог проверенных AI-агентов, который связывает бизнес, студии и создателей с готовыми решениями — прозрачно, быстро и без лишнего шума.",
+    about_subtitle: "Мы строим каталог проверенных AI-агентов, который связывает бизнес, студии и создателей с готовыми решениями.",
     about_mission_title: "Миссия",
-    about_mission_text: "Упростить путь от идеи до рабочей AI-автоматизации. Один хаб вместо десятков разрозненных ботов и порядков.",
+    about_mission_text: "Упростить путь от идеи до рабочей AI-автоматизации. Один хаб вместо десятков разрозненных ботов.",
     about_for_whom_title: "Для кого",
     about_quality_title: "Качество и развитие",
     about_next_title: "Куда идём дальше",
-    support_title: "Поддержка & заявки агентов",
-    support_subtitle: "Задай вопрос по платформе или отправь карточку своего агента на модерацию. Сейчас всё работает в демо-режиме.",
-    support_form_title: "Написать в поддержку",
+    support_title: "Техническая поддержка",
+    support_subtitle: "Только технические вопросы: баги, доступ, работа агентов.",
+    support_form_title: "Форма техподдержки",
     support_name_label: "Имя / команда",
-    support_topic_label: "Тема",
-    support_message_label: "Сообщение",
-    support_submit: "Отправить (демо)",
-    support_faq_title: "FAQ по запуску агента",
+    support_topic_label: "Тип проблемы",
+    support_message_label: "Описание",
+    support_submit: "Отправить в поддержку (демо)",
+    support_faq_title: "Частые вопросы (тех)",
     settings_title: "Настройки аккаунта (демо)",
-    settings_subtitle: "В реальном запуске здесь будут авторизация, биллинг и управление интеграциями. Сейчас — прототип базовых контролов.",
+    settings_subtitle: "В реальном запуске здесь будут авторизация, биллинг и интеграции.",
     settings_profile_title: "Профиль",
     settings_name_label: "Имя / команда",
     settings_language_title: "Язык интерфейса",
     settings_currency_title: "Валюта",
     settings_save: "Сохранить (демо)",
     settings_integrations_title: "Интеграции & уведомления",
-    settings_hint: "Все переключатели работают как прототип и не отправляют реальные данные.",
+    settings_hint: "Все переключатели работают как прототип.",
     admin_title: "Админ-панель (демо)",
-    admin_subtitle: "Прототип внутреннего интерфейса модерации. Показывает, как может выглядеть управление агентами и фичерингом.",
+    admin_subtitle: "Прототип интерфейса модерации агентов.",
     admin_metrics_title: "Сводка за сегодня",
     admin_actions_title: "Действия модератора",
-    admin_table_title: "Агенты (демо-таблица)"
+    admin_table_title: "Агенты (демо-таблица)",
+    requests_title: "Запросы, пожелания и партнёрства",
+    requests_subtitle: "Идеи по платформе, заявки на интеграцию и новые агенты.",
+    requests_agent_title: "Предложить нового агента",
+    requests_partner_title: "Партнёрство и улучшения",
+    auth_title: "Вход / регистрация",
+    auth_subtitle: "Зарегистрируйтесь, чтобы подключать агентов. Можно продолжить как гость.",
+    auth_tab_register: "Регистрация",
+    auth_tab_login: "Вход",
+    auth_name_label: "Имя / команда",
+    auth_password_label: "Пароль",
+    auth_submit: "Продолжить (демо)",
+    auth_skip: "Продолжить как гость",
+    auth_notice: "В продакшене здесь будет безопасная регистрация через backend / OAuth. Сейчас — прототип."
   },
   en: {
     lang_label: "EN",
@@ -141,6 +183,7 @@ const I18N = {
     nav_catalog: "Catalog",
     nav_about: "About",
     nav_support: "Support",
+    nav_requests: "Requests",
     nav_settings: "Settings",
     nav_admin: "Admin",
     footer_product: "Product",
@@ -148,55 +191,71 @@ const I18N = {
     footer_how_it_works: "How it works",
     footer_company: "Company",
     footer_about: "About",
-    footer_contact: "Contacts",
+    footer_contact: "Requests & partnership",
     footer_support: "Support",
     footer_faq: "FAQ",
     footer_support_center: "Help center",
     footer_tagline: "A curated directory of AI agents for teams and creators.",
     catalog_title: "AI Agents Catalog",
-    catalog_subtitle: "Explore ready-to-use assistants for support, sales, marketing, engineering and ops.",
+    catalog_subtitle: "Explore assistants for support, sales, marketing, engineering and ops.",
     filter_all: "All categories",
     about_title: "About AIAGENTHUB",
-    about_subtitle: "We are building a curated AI agents hub that connects teams and creators with real, working solutions.",
+    about_subtitle: "We are building a curated AI agents hub that connects teams and creators with real solutions.",
     about_mission_title: "Mission",
-    about_mission_text: "Make AI automation adoption fast and practical. One hub instead of dozens of scattered bots.",
+    about_mission_text: "Make AI automation adoption fast and practical.",
     about_for_whom_title: "Who it's for",
     about_quality_title: "Quality & roadmap",
     about_next_title: "What's next",
-    support_title: "Support & agent submissions",
-    support_subtitle: "Ask anything about the platform or submit your agent. All flows are demo for now.",
-    support_form_title: "Contact support",
+    support_title: "Technical support",
+    support_subtitle: "Report bugs, access issues or agent problems.",
+    support_form_title: "Support form",
     support_name_label: "Name / team",
-    support_topic_label: "Topic",
-    support_message_label: "Message",
-    support_submit: "Send (demo)",
-    support_faq_title: "Agent launch FAQ",
+    support_topic_label: "Issue type",
+    support_message_label: "Description",
+    support_submit: "Send to support (demo)",
+    support_faq_title: "Technical FAQ",
     settings_title: "Settings (demo)",
-    settings_subtitle: "In production this will include auth, billing and integrations. For now it's a prototype.",
+    settings_subtitle: "In production: auth, billing & integrations.",
     settings_profile_title: "Profile",
     settings_name_label: "Name / team",
     settings_language_title: "Interface language",
     settings_currency_title: "Currency",
     settings_save: "Save (demo)",
     settings_integrations_title: "Integrations & notifications",
-    settings_hint: "All controls are demo-only and do not send any data.",
+    settings_hint: "All controls are demo-only.",
     admin_title: "Admin panel (demo)",
-    admin_subtitle: "A prototype of the moderation dashboard for agents and featuring.",
+    admin_subtitle: "Moderation dashboard prototype.",
     admin_metrics_title: "Today overview",
     admin_actions_title: "Moderator actions",
-    admin_table_title: "Agents table (demo)"
+    admin_table_title: "Agents table (demo)",
+    requests_title: "Requests, ideas & partnerships",
+    requests_subtitle: "Ideas, partnerships and new agents proposals.",
+    requests_agent_title: "Suggest a new agent",
+    requests_partner_title: "Partnership & platform feedback",
+    auth_title: "Sign in / Sign up",
+    auth_subtitle: "Register to connect agents. Guest mode available.",
+    auth_tab_register: "Sign up",
+    auth_tab_login: "Sign in",
+    auth_name_label: "Name / team",
+    auth_password_label: "Password",
+    auth_submit: "Continue (demo)",
+    auth_skip: "Continue as guest",
+    auth_notice: "Production version will use secure backend / OAuth. This is a prototype."
   }
 };
 
 function getCurrentLang() {
-  if (typeof localStorage === "undefined") return "ru";
-  return localStorage.getItem("aiagenthub_lang") || "ru";
+  try {
+    return localStorage.getItem("aiagenthub_lang") || "ru";
+  } catch {
+    return "ru";
+  }
 }
 
 function setCurrentLang(lang) {
   try {
     localStorage.setItem("aiagenthub_lang", lang);
-  } catch (e) {}
+  } catch {}
 }
 
 function applyTranslations() {
@@ -204,17 +263,16 @@ function applyTranslations() {
   const dict = I18N[lang] || I18N.ru;
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (dict[key]) {
-      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
-        el.placeholder = dict[key];
-      } else {
-        el.innerHTML = dict[key];
-      }
+    if (!key || !dict[key]) return;
+    if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+      el.placeholder = dict[key];
+    } else {
+      el.innerHTML = dict[key];
     }
   });
-  const langBtn = document.querySelector("#langBtn span");
-  if (langBtn && dict.lang_label) {
-    langBtn.textContent = dict.lang_label;
+  const langBtnSpan = document.querySelector("#langBtn span");
+  if (langBtnSpan && dict.lang_label) {
+    langBtnSpan.textContent = dict.lang_label;
   }
   const languageSelect = document.getElementById("languageSelect");
   if (languageSelect) {
@@ -222,7 +280,53 @@ function applyTranslations() {
   }
 }
 
-// Basic UI wiring
+// Auth state helpers (demo only)
+function getDemoUser() {
+  try {
+    const raw = localStorage.getItem("aiagenthub_user");
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function setDemoUser(user) {
+  try {
+    localStorage.setItem("aiagenthub_user", JSON.stringify(user));
+    localStorage.removeItem("aiagenthub_guest");
+  } catch {}
+}
+
+function setGuest() {
+  try {
+    localStorage.setItem("aiagenthub_guest", "1");
+    localStorage.removeItem("aiagenthub_user");
+  } catch {}
+}
+
+function isGuest() {
+  try {
+    return localStorage.getItem("aiagenthub_guest") === "1";
+  } catch {
+    return false;
+  }
+}
+
+function isAuthedOrGuest() {
+  return !!getDemoUser() || isGuest();
+}
+
+// Modal controls
+function openAuthModal() {
+  const modal = document.getElementById("authModal");
+  if (modal) modal.style.display = "flex";
+}
+
+function closeAuthModal() {
+  const modal = document.getElementById("authModal");
+  if (modal) modal.style.display = "none";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Burger / mobile nav
   const burger = document.getElementById("burger");
@@ -244,16 +348,103 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Settings page language select
-  const languageSelect = document.getElementById("languageSelect");
-  if (languageSelect) {
-    languageSelect.addEventListener("change", (e) => {
-      setCurrentLang(e.target.value);
-      applyTranslations();
+  // Header auth button
+  const openAuthFromHeader = document.getElementById("openAuthFromHeader");
+  if (openAuthFromHeader) {
+    openAuthFromHeader.addEventListener("click", () => openAuthModal());
+  }
+
+  // Auth modal elements
+  const authModal = document.getElementById("authModal");
+  const authClose = document.getElementById("authClose");
+  const tabRegister = document.getElementById("tabRegister");
+  const tabLogin = document.getElementById("tabLogin");
+  const authSubmit = document.getElementById("authSubmit");
+  const authSkip = document.getElementById("authSkip");
+  const authName = document.getElementById("authName");
+  const authEmail = document.getElementById("authEmail");
+  const authPassword = document.getElementById("authPassword");
+
+  let authMode = "register"; // or login
+
+  if (authClose && authModal) {
+    authClose.addEventListener("click", () => closeAuthModal());
+    authModal.addEventListener("click", (e) => {
+      if (e.target === authModal) closeAuthModal();
     });
   }
 
-  // Settings save (demo)
+  if (tabRegister && tabLogin) {
+    tabRegister.addEventListener("click", () => {
+      authMode = "register";
+      tabRegister.classList.add("active");
+      tabLogin.classList.remove("active");
+    });
+    tabLogin.addEventListener("click", () => {
+      authMode = "login";
+      tabLogin.classList.add("active");
+      tabRegister.classList.remove("active");
+    });
+  }
+
+  if (authSubmit) {
+    authSubmit.addEventListener("click", () => {
+      if (!authEmail || !authPassword) return;
+      const email = authEmail.value.trim();
+      const pass = authPassword.value.trim();
+      const name = authName ? authName.value.trim() : "";
+      if (!email || !pass) {
+        alert("Заполните email и пароль (демо).");
+        return;
+      }
+      if (authMode === "register") {
+        setDemoUser({ email, name: name || "Demo User" });
+        alert("Регистрация выполнена (демо). В реале здесь будет backend.");
+      } else {
+        setDemoUser({ email, name: name || "Demo User" });
+        alert("Вход выполнен (демо).");
+      }
+      closeAuthModal();
+    });
+  }
+
+  if (authSkip) {
+    authSkip.addEventListener("click", () => {
+      setGuest();
+      alert("Вы продолжаете как гость. Некоторые функции могут быть ограничены.");
+      closeAuthModal();
+    });
+  }
+
+  // Support & Requests forms (demo)
+  const supportForm = document.getElementById("supportForm");
+  if (supportForm) {
+    supportForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Заявка в техподдержку отправлена (демо).");
+      supportForm.reset();
+    });
+  }
+
+  const requestAgentForm = document.getElementById("requestAgentForm");
+  if (requestAgentForm) {
+    requestAgentForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Идея агента отправлена (демо).");
+      requestAgentForm.reset();
+    });
+  }
+
+  const requestPartnerForm = document.getElementById("requestPartnerForm");
+  if (requestPartnerForm) {
+    requestPartnerForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Партнёрский запрос / пожелание отправлено (демо).");
+      requestPartnerForm.reset();
+    });
+  }
+
+  // Settings demo save
   const settingsBtn = document.getElementById("settingsSaveBtn");
   if (settingsBtn) {
     settingsBtn.addEventListener("click", () => {
@@ -261,23 +452,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Support form submit (demo)
-  const supportForm = document.getElementById("supportForm");
-  if (supportForm) {
-    supportForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("Заявка отправлена (демо). В проде здесь будет интеграция с вашим inbox / CRM.");
-      supportForm.reset();
-    });
-  }
-
   // Render hero agents
   const heroAgentsContainer = document.getElementById("heroAgents");
   if (heroAgentsContainer) {
     const featured = AGENTS.filter((a) => a.featured).slice(0, 4);
-    heroAgentsContainer.innerHTML = featured
-      .map(
-        (a) => `
+    heroAgentsContainer.innerHTML = featured.map((a) => `
       <div class="hero-agent-card">
         <strong>${a.name}</strong>
         <div class="agent-desc">${a.short}</div>
@@ -285,9 +464,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <span>${a.category}</span>
           <div style="font-size:8px;color:#22c55e;">↑ live</div>
         </div>
-      </div>`
-      )
-      .join("");
+      </div>
+    `).join("");
   }
 
   // Render featured agents on index
@@ -297,7 +475,7 @@ document.addEventListener("DOMContentLoaded", () => {
     featuredGrid.innerHTML = featured.map(agentCardHTML).join("");
   }
 
-  // Catalog page rendering
+  // Catalog page
   const catalogGrid = document.getElementById("catalogAgents");
   const searchInput = document.getElementById("searchInput");
   const filterChips = document.querySelectorAll("#filterChips .filter-chip");
@@ -315,8 +493,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return matchesCategory && matchesQuery;
     });
 
-    catalogGrid.innerHTML = filtered.map(agentCardHTML).join("") ||
-      `<div style="font-size:11px;color:#6b7280;">Ничего не найдено под ваш запрос. Попробуйте изменить фильтры.</div>`;
+    catalogGrid.innerHTML = filtered.length
+      ? filtered.map(agentCardHTML).join("")
+      : '<div style="font-size:11px;color:#6b7280;">Ничего не найдено под ваш запрос. Попробуйте изменить фильтры.</div>';
   }
 
   if (filterChips.length && catalogGrid) {
@@ -337,7 +516,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCatalog();
   }
 
-  // Admin table rendering
+  // Admin table
   const adminTableBody = document.querySelector("#adminAgentsTable tbody");
   if (adminTableBody) {
     adminTableBody.innerHTML = AGENTS.map((a, index) => {
@@ -362,6 +541,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }).join("");
   }
 
+  // Agent actions: connect + more (delegated)
+  document.addEventListener("click", (e) => {
+    const moreBtn = e.target.closest(".more-btn");
+    if (moreBtn) {
+      const card = moreBtn.closest(".agent-card");
+      const more = card.querySelector(".agent-more");
+      const isOpen = more.style.display === "block";
+      more.style.display = isOpen ? "none" : "block";
+      moreBtn.querySelector("span").textContent = isOpen ? "Подробнее" : "Свернуть";
+    }
+
+    const connectBtn = e.target.closest(".connect-btn");
+    if (connectBtn) {
+      if (!isAuthedOrGuest()) {
+        openAuthModal();
+      } else {
+        alert("Подключение агента (демо). В реальном запуске здесь логика интеграции.");
+      }
+    }
+  });
+
   // Scroll fade-in
   const fadeEls = document.querySelectorAll(".fade-in");
   if (fadeEls.length) {
@@ -379,14 +579,14 @@ document.addEventListener("DOMContentLoaded", () => {
     fadeEls.forEach((el) => obs.observe(el));
   }
 
-  // Apply language at the end so dynamic content also respects dictionary
+  // Apply translations last
   applyTranslations();
 });
 
-// Helper to render agent card
+// Agent card with collapsible details
 function agentCardHTML(a) {
   return `
-    <article class="agent-card">
+    <article class="agent-card" data-agent-id="${a.id}">
       <div class="agent-card-header">
         <div>
           <div class="agent-name">${a.name}</div>
@@ -398,12 +598,18 @@ function agentCardHTML(a) {
         ${a.tags.map((t) => `<span class="agent-tag">${t}</span>`).join("")}
       </div>
       <div class="agent-actions">
-        <button class="primary" type="button">
+        <button class="primary connect-btn" type="button">
           <span>Подключить</span>
         </button>
-        <button type="button">
+        <button class="more-btn" type="button">
           <span>Подробнее</span>
         </button>
+      </div>
+      <div class="agent-more" style="display:none;">
+        <div><strong>Use case:</strong> ${a.useCase}</div>
+        <div><strong>Пример запроса:</strong> ${a.examplePrompt}</div>
+        <div><strong>Интеграции:</strong> ${a.integrations.join(", ")}</div>
+        <div><strong>Условия:</strong> ${a.pricingNote}</div>
       </div>
     </article>
   `;

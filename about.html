@@ -17,17 +17,18 @@
     </div>
     <nav class="nav">
       <a href="index.html" data-i18n="nav_home" class="">Главная</a>
-          <a href="catalog.html" data-i18n="nav_catalog" class="">Каталог</a>
-          <a href="about.html" data-i18n="nav_about" class="active">О нас</a>
-          <a href="support.html" data-i18n="nav_support" class="">Поддержка</a>
-          <a href="settings.html" data-i18n="nav_settings" class="">Настройки</a>
-          <a href="admin.html" data-i18n="nav_admin" class="">Админ</a>
+      <a href="catalog.html" data-i18n="nav_catalog" class="">Каталог</a>
+      <a href="about.html" data-i18n="nav_about" class="active">О нас</a>
+      <a href="support.html" data-i18n="nav_support" class="">Поддержка</a>
+      <a href="requests.html" data-i18n="nav_requests" class="">Запросы</a>
+      <a href="settings.html" data-i18n="nav_settings" class="">Настройки</a>
+      <a href="admin.html" data-i18n="nav_admin" class="">Админ</a>
     </nav>
     <div class="header-right">
       <button id="langBtn" class="lang-toggle" type="button">
         <span data-i18n="lang_label">RU</span>
       </button>
-      <button class="header-auth-btn" type="button">
+      <button class="header-auth-btn" id="openAuthFromHeader" type="button">
         <span class="dot"></span>
         <span data-i18n="auth_demo">Демо-доступ</span>
       </button>
@@ -41,6 +42,7 @@
       <a href="catalog.html" data-i18n="nav_catalog" class="">Каталог</a>
       <a href="about.html" data-i18n="nav_about" class="active">О нас</a>
       <a href="support.html" data-i18n="nav_support" class="">Поддержка</a>
+      <a href="requests.html" data-i18n="nav_requests" class="">Запросы</a>
       <a href="settings.html" data-i18n="nav_settings" class="">Настройки</a>
       <a href="admin.html" data-i18n="nav_admin" class="">Админ</a>
   </nav>
@@ -69,15 +71,15 @@
           <div class="card">
             <h3 data-i18n="about_quality_title">Качество и развитие</h3>
             <ul class="list">
-              <li data-i18n="about_quality_1">Мягкая модерация: базовая проверка описаний, сценариев и UX агентов.</li>
-              <li data-i18n="about_quality_2">Планы: рейтинги, верификация, публичные ревью, API для встроек и виджетов.</li>
+              <li data-i18n="about_quality_1">Базовая модерация описаний и сценариев агентов.</li>
+              <li data-i18n="about_quality_2">Планы: рейтинги, верификация, публичные ревью, API для виджетов.</li>
               <li data-i18n="about_quality_3">Прозрачные карточки: стек, ограничения, стоимость, интеграции.</li>
             </ul>
             <h3 data-i18n="about_next_title">Куда идём дальше</h3>
             <ul class="list">
               <li data-i18n="about_next_1">Единый формат подключения и оплаты.</li>
               <li data-i18n="about_next_2">Песочницы для безопасного теста агентов.</li>
-              <li data-i18n="about_next_3">Подбор агентов под кейс на основе метрик и отзывов.</li>
+              <li data-i18n="about_next_3">Подбор агентов под кейс на основе метрик.</li>
             </ul>
           </div>
         </div>
@@ -96,7 +98,7 @@
       <div>
         <div class="footer-title" data-i18n="footer_company">Компания</div>
         <a href="about.html" class="footer-link" data-i18n="footer_about">О платформе</a>
-        <a href="support.html" class="footer-link" data-i18n="footer_contact">Контакты</a>
+        <a href="requests.html" class="footer-link" data-i18n="footer_contact">Запросы и партнёрство</a>
       </div>
       <div>
         <div class="footer-title" data-i18n="footer_support">Поддержка</div>
@@ -115,6 +117,42 @@
     </div>
   </div>
 </footer>
+
+
+<div class="modal-backdrop" id="authModal">
+  <div class="modal">
+    <button class="modal-close" id="authClose">×</button>
+    <h3 class="modal-title" data-i18n="auth_title">Вход / регистрация</h3>
+    <div class="modal-subtitle" data-i18n="auth_subtitle">
+      Зарегистрируйтесь, чтобы подключать агентов и отправлять заявки. Можно продолжить как гость.
+    </div>
+    <div class="modal-tabs">
+      <div class="modal-tab active" id="tabRegister" data-i18n="auth_tab_register">Регистрация</div>
+      <div class="modal-tab" id="tabLogin" data-i18n="auth_tab_login">Вход</div>
+    </div>
+    <form id="authForm" class="form-grid">
+      <div>
+        <div class="label" data-i18n="auth_name_label">Имя / команда</div>
+        <input class="input" type="text" id="authName" placeholder="AI Studio" />
+      </div>
+      <div>
+        <div class="label">Email</div>
+        <input class="input" type="email" id="authEmail" placeholder="you@product.io" required />
+      </div>
+      <div>
+        <div class="label" data-i18n="auth_password_label">Пароль</div>
+        <input class="input" type="password" id="authPassword" placeholder="Минимум 6 символов" required />
+      </div>
+    </form>
+    <div class="modal-actions">
+      <button class="modal-btn-primary" id="authSubmit" data-i18n="auth_submit">Продолжить (демо)</button>
+      <button class="modal-btn-ghost" id="authSkip" data-i18n="auth_skip">Продолжить как гость</button>
+    </div>
+    <div class="modal-subtitle" style="margin-top:4px;font-size:8px;" data-i18n="auth_notice">
+      В продакшене здесь будет безопасная регистрация через backend / OAuth. Сейчас — прототип без отправки данных.
+    </div>
+  </div>
+</div>
 
 </div>
 <script src="script.js"></script>
