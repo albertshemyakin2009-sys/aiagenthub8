@@ -284,11 +284,8 @@ function applyTranslations() {
 // --- Theme helpers ---
 function getCurrentTheme() {
   try {
-    const v = localStorage.getItem("aiagenthub_theme");
-    if (v && ["original","light","blue"].includes(v)) return v;
-  } catch {}
-  return "original";
-} catch {
+    return localStorage.getItem("aiagenthub_theme") || "original";
+  } catch {
     return "original";
   }
 }
@@ -296,13 +293,11 @@ function getCurrentTheme() {
 function setCurrentTheme(theme) {
   const body = document.body;
   if (!body) return;
-  const allowed = new Set(["original", "light", "blue"]);
-  if (!allowed.has(theme)) theme = "original";
-  body.setAttribute("data-theme", theme);
+  if (theme !== "light" && theme !== "original") theme = "original";
+  body.setAttribute("data-theme", theme === "light" ? "light" : "original");
   try {
     localStorage.setItem("aiagenthub_theme", theme);
   } catch {}
-} catch {}
 }
 
 // --- Auth state (demo only) ---
